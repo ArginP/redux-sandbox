@@ -7,7 +7,8 @@ console.log('Initial state', store.getState())
 
 // подключаемся к store:
 const unsubscribe = store.subscribe(() => {
-    console.log('Updated state', store.getState())
+    // console.log('Updated state', store.getState())
+    // logger займется логированием всех actions
 })
 
 // dispatching actions:
