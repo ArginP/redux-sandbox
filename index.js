@@ -1,9 +1,11 @@
-const redux = require('redux')
+const redux = require('redux') // import redux from 'redux' -- jsx syntax
 const createStore = redux.createStore
 const bindActionCreators = redux.bindActionCreators
 const combineReducers = redux.combineReducers
+const applyMiddleware = redux.applyMiddleware // подключение middleware к redux
 
-// import redux from 'redux' -- jsx syntax
+const reduxLogger = require('redux-logger') // redux-logger middleware
+const logger = reduxLogger.createLogger()
 
 // --- Redux Actions: ---
 const CAKE_ORDERED = 'CAKE_ORDERED'
@@ -129,11 +131,12 @@ const rootReducer = combineReducers({
 
 // --- Redux Store: ---
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(logger)) // подключаем middleware здесь
 console.log('Initial state', store.getState())
 
 const unsubscribe = store.subscribe(() => {
-    console.log('Update store', store.getState())
+    // console.log('Update store', store.getState())
+    // теперь не нужно, так как за логирование теперь отвечает applyMiddleware(logger)
 })
 
 // store.dispatch(orderCake())
