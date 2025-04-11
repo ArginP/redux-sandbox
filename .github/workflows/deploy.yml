@@ -30,22 +30,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: '4 React RTK TS/package-lock.json'
+
       - name: Install dependencies
         run: cd '4 React RTK TS' && npm ci
+
       - name: Build
         run: cd '4 React RTK TS' && npm run build
+
+      - name: Debug dist folder
+        run: ls -la '4 React RTK TS/dist'
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
           path: './4 React RTK TS/dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
