@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 //import reduxLogger from 'redux-logger'
 import cakeReducer from '../features/cake/cakeSlice'
 import icecreamReducer from '../features/icecream/icecreamSlice'
-import userReducer from '../features/user/userSlice'
+// import userReducer from '../features/user/userSlice'
+import { userApi } from '../features/user/userApi';
 
 // const logger = reduxLogger.createLogger()
 
@@ -12,10 +13,13 @@ const store = configureStore({
     reducer: {
         cake: cakeReducer,
         icecream: icecreamReducer,
-        user: userReducer,
+        // user: userReducer,
+        [userApi.reducerPath]: userApi.reducer, // Редюсер RTK Query
     },
     // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
     // потому что RTK подключает Middleware автоматически, поэтому нам нужно к этому списку добавить наш логгер
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(userApi.middleware), // Добавляем middleware RTK Query
 })
 
 export default store

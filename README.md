@@ -1,4 +1,4 @@
-# Redux - Redux Toolkit - React-Redux - React RTK TS
+# Redux - Redux Toolkit - React-Redux - React RTK TS - React Query
 ## Sandbox project
 
 ## ```Source:```
@@ -16,6 +16,7 @@ https://github.com/gopinav/Redux-Toolkit-Tutorials
 - Кнопка Restock Cake увеличивает количество Cake на 5 единиц
 - Кнопка Order Ice Cream уменьшает количество IceCream на 1
 - Кнопка Restock Ice Cream получает value из controlled input, и увеличивает число мороженных на указанное число
-- Axios получает JSON от jsonplaceholder
+- ~~Axios получает JSON от jsonplaceholder~~
+- API via RTK Query для получения данных от jsonplaceholder
   - Полученные данные выводятся на страницу
   - Есть обработка и вывод ошибок
