@@ -8,13 +8,13 @@ import userReducer from '../features/user/userSlice'
 
 // создаем store с помощью configureStore, и присоединяем к нему reducer
 const store = configureStore({
-    // configureStore сама соберет все редюсеры в один общий редюсер
+    // configureStore сам соберет все редюсеры в один общий редюсер
     reducer: {
         cake: cakeReducer,
         icecream: icecreamReducer,
         user: userReducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
     // потому что RTK подключает Middleware автоматически, поэтому нам нужно к этому списку добавить наш логгер
 })
 
