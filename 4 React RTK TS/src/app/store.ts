@@ -13,11 +13,11 @@ const store = configureStore({
     reducer: {
         cake: cakeReducer,
         icecream: icecreamReducer,
-        // user: userReducer,
+        // user: userReducer, // Редюсер axios + AsyncThunk
         [userApi.reducerPath]: userApi.reducer, // Редюсер RTK Query
     },
     // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
-    // потому что RTK подключает Middleware автоматически, поэтому нам нужно к этому списку добавить наш логгер
+    // RTK подключает несколько Middleware автоматически, поэтому нам нужно к этому списку добавлять логгер
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(userApi.middleware), // Добавляем middleware RTK Query
 })

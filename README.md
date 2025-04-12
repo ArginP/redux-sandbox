@@ -20,3 +20,5 @@ https://github.com/gopinav/Redux-Toolkit-Tutorials
 - API via RTK Query для получения данных от jsonplaceholder
   - Полученные данные выводятся на страницу
   - Есть обработка и вывод ошибок
+  - Второй query с настраиваемыми параметрами фильтрации ответа от API
+  - Третий query с мутацией для симуляции запроса с методом POST
